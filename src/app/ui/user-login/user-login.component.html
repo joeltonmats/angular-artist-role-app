@@ -1,0 +1,31 @@
+<div class="login-container">
+  <form class="login-form" novalidate>
+    <p class="login-text">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-lock fa-stack-1x"></i>
+      </span>
+    </p>
+    <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
+    <input type="password" class="login-password" required="true" placeholder="Password" />
+    <div class="text-right">
+      <input type="submit" name="Login" value="Login" class="login-submit" />
+    </div>
+    <div class="row" *ngIf="!(auth.user | async);">
+      <div class="social-container">
+        <div class="footer-social-icons">
+          <h4 class="_14">Sign in:</h4>
+          <ul class="social-icons">
+            <li><a (click)="signInWithFacebook()" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+            <li><a (click)="signInWithTwitter()" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+            <li><a (click)="signInWithGithub()" class="social-icon"> <i class="fa fa-github"></i></a></li>
+            <li><a (click)="signInWithGoogle()" class="social-icon"> <i class="fa fa-google-plus"></i></a></li>
+            <li><a (click)="signInAnonymously()" class="social-icon"> <i class="fa fa-user-secret"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="underlay-photo"></div>
+  <div class="underlay-black"></div>
+</div>

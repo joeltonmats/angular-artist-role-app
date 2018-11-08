@@ -1,0 +1,59 @@
+<section class="container">
+
+  <div class="page-header">
+    <h1>Artist Phase<br>
+      <small>Greatest roles</small>
+    </h1>
+    <div>
+      <app-user-profile></app-user-profile>
+    </div>
+  </div>
+
+  <div class="row active-with-click">
+    <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let artist of artitsObservable | async">
+      <article class="material-card" [ngClass]="randomColor()" id="{{artist.name}}">
+        <h2>
+          <span>{{artist.name}}</span>
+          <strong>
+            <i class="fa fa-fw fa-star"></i>
+            {{artist.short_description}}
+          </strong>
+        </h2>
+        <div class="mc-content">
+          <div class="img-container">
+            <img class="img-responsive" src="{{artist.img}}">
+          </div>
+          <div class="mc-description">
+            {{artist.description}}
+          </div>
+        </div>
+        <a class="mc-btn-action" (click)="onClickArtist(artist)" href="#{{'popup'+ artist.name}}">
+          <i class="fa fa-bars"></i>
+        </a>
+        <div class="mc-footer">
+          <h4>
+            Social
+          </h4>
+          <a class="fa fa-fw fa-facebook"></a>
+          <a class="fa fa-fw fa-twitter"></a>
+          <a class="fa fa-fw fa-linkedin"></a>
+          <a class="fa fa-fw fa-google-plus"></a>
+        </div>
+      </article>
+      <div class="artist-modal">
+        <div class="popup" id="{{'popup'+artist.name}}">
+          <div class="popup-inner">
+            <div class="popup__photo">
+              <img src="{{artist.img}}" alt="{{artist.name}}">
+            </div>
+            <div class="popup__text">
+              <h1>{{artist.name}}</h1>
+              <p> {{artist.description}}.</p>
+            </div>
+            <a class="popup__close" href="#{{artist.name}}">X</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
