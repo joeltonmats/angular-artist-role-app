@@ -14,3 +14,7 @@ npm install
 ```
 ng serve
 ```
+
+# Firebase Credentials
+
+Remember to add your firebase app config in environment.ts
